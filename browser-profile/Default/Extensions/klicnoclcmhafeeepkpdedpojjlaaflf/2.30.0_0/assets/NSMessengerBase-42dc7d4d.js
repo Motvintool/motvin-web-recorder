@@ -1,0 +1,1 @@
+class t{#s;#e;constructor(e,s){this.#s=e,this.#e=s}registerHandler(e,s){this.#e.registerHandler(this.topic(e),s)}unregisterHandler(e){this.#e.unregisterHandler(this.topic(e))}topic(e){return`${this.#s}:${e}`}}export{t as N};

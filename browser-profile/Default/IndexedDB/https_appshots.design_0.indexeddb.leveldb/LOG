@@ -1,0 +1,13 @@
+2026/10/02-14:56:38.358 35e44c Reusing MANIFEST /Users/surendar-15488/New Backup/Disk/Draft Images/Sources/Demo/plugin/motvin-web-recorder/browser-profile/Default/IndexedDB/https_appshots.design_0.indexeddb.leveldb/MANIFEST-000001
+2026/10/02-14:56:38.358 35e44c Recovering log #7
+2026/10/02-14:56:38.359 35e44c Reusing old log /Users/surendar-15488/New Backup/Disk/Draft Images/Sources/Demo/plugin/motvin-web-recorder/browser-profile/Default/IndexedDB/https_appshots.design_0.indexeddb.leveldb/000007.log 
+2026/10/02-14:56:38.368 35e44c Level-0 table #11: started
+2026/10/02-14:56:38.368 35e44c Level-0 table #11: 8488 bytes OK
+2026/10/02-14:56:38.370 35e44c Delete type=0 #7
+2026/10/02-14:56:38.370 35e44c Manual compaction at level-0 from '\x00\x07\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x08\x00\x00\x00' @ 0 : 0; will stop at '\x00\x07\x00\x00\x05' @ 361 : 1
+2026/10/02-14:56:38.370 35e44c Compacting 1@0 + 1@1 files
+2026/10/02-14:56:38.371 35e44c Generated table #12@0: 135 keys, 2738 bytes
+2026/10/02-14:56:38.371 35e44c Compacted 1@0 + 1@1 files => 2738 bytes
+2026/10/02-14:56:38.372 35e44c compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/10/02-14:56:38.372 35e44c Delete type=2 #11
+2026/10/02-14:56:38.372 35e44c Manual compaction at level-0 from '\x00\x07\x00\x00\x05' @ 361 : 1 .. '\x00\x08\x00\x00\x00' @ 0 : 0; will stop at (end)

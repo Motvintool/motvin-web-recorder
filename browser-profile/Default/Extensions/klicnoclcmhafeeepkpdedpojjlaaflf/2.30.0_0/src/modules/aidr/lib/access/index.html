@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checking Access...</title>
+    <script type="module" src="./messaging.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: #f7f7f8;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        text-align: center;
+        max-width: 600px;
+        padding: 40px 24px;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 48px;
+        gap: 12px;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+      }
+
+      .brand {
+        font-size: 24px;
+        font-weight: 600;
+        color: #f7f7f8;
+      }
+
+      .content {
+        margin-top: 32px;
+      }
+
+      .spinner {
+        width: 48px;
+        height: 48px;
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        border-top-color: #9dc1fd;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 32px;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      h2 {
+        font-size: 24px;
+        font-weight: 600;
+        margin: 0 0 16px;
+        color: #f7f7f8;
+      }
+
+      .url-text {
+        font-size: 14px;
+        color: #9dc1fd;
+        font-family: 'Courier New', monospace;
+        margin: 16px 0;
+        word-break: break-all;
+        padding: 12px 16px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 6px;
+        border: 1px solid rgba(157, 193, 253, 0.2);
+      }
+
+      .subtext {
+        font-size: 14px;
+        color: #e2e2e4;
+        margin-top: 24px;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <svg
+          class="logo"
+          viewBox="0 0 60 60"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M30 5L50 17.5V42.5L30 55L10 42.5V17.5L30 5Z"
+            fill="#FA4147"
+            stroke="#FA4147"
+            stroke-width="2"
+          />
+          <path
+            d="M30 15L42 22.5V37.5L30 45L18 37.5V22.5L30 15Z"
+            fill="#1a1a2e"
+          />
+        </svg>
+        <span class="brand">CrowdStrike AIDR</span>
+      </div>
+
+      <div class="content">
+        <div class="spinner"></div>
+        <h2>Checking site access...</h2>
+        <p class="subtext">
+          Please wait while we verify your permissions for this site.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

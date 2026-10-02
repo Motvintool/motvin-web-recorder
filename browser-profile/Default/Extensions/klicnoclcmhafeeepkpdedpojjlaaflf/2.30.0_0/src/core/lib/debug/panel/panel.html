@@ -1,0 +1,94 @@
+<!doctype html>
+
+
+<script type="module" crossorigin src="/assets/panel.html-b147b95e.js"></script>
+<link rel="modulepreload" crossorigin href="/assets/Log-8bb31b9f.js">
+<link rel="stylesheet" href="/assets/panel-598a8d79.css">
+
+<body class="collapsed-semi">
+  <h1>
+    <span>Debug panel</span>
+    <button id="downloadLogs" class="accent">
+      <img src="/assets/download-d4bd3d23.svg" alt="download-button" />
+      Download logs
+    </button>
+  </h1>
+  <section id="devSection" class="debug_on">
+    <div class="space-between">
+      <div>
+        <input type="checkbox" name="tab" id="tab" />
+        <label for="tab">Tab only</label>
+      </div>
+      <div>
+        <input type="checkbox" name="console" id="console" /><label
+          for="console"
+          >Console log</label
+        >
+      </div>
+      <div>
+        <input type="checkbox" name="traces" id="traces" /><label for="traces"
+          >Console traces</label
+        >
+      </div>
+      <button id="loadLogs" class="accent">
+        <img
+          src="/assets/download-d4bd3d23.svg"
+          style="rotate: 180deg; padding: 0; height: 12px"
+          alt="load logs"
+        />
+      </button>
+      <input type="file" style="display: none" id="loadLogsInput" />
+    </div>
+
+    <div class="space-between">
+      <input id="search" type="text" placeholder="Search something" />
+      <button id="clearSearch">x</button>
+    </div>
+  </section>
+
+  <section id="selectors" class="space-between">
+    <select id="traceLevel">
+      <option value="0">NONE</option>
+      <option value="1">CRITICAL</option>
+      <option value="2">ERROR</option>
+      <option value="3">WARN</option>
+      <option value="4" selected>INFO</option>
+      <option value="5">DEBUG</option>
+      <option value="-1">TELEMETRY</option>
+    </select>
+
+    <select id="messageType"></select>
+  </section>
+
+  <section id="buttons" class="space-between">
+    <button id="clearBtn">
+      <img src="/assets/clear-console-e83bff69.svg" alt="clear logs" />
+      Clear logs
+    </button>
+    <button id="copyAllLogs">
+      <img src="/assets/copy-c4d13274.svg" alt="copy all logs" />
+      Copy all logs
+    </button>
+  </section>
+
+  <div id="logs">
+    <div class="log collapsed">
+      <div class="title">
+        <span class="type"></span>
+        <span class="date"></span>
+        <div class="btn expand-icon icon icon-32">
+          <img src="/assets/chevron-96960706.svg" alt="collapse" />
+        </div>
+      </div>
+      <div class="body">
+        <div class="message"></div>
+        <div class="raw">
+          <a class="copy icon-24 btn"
+            ><img src="/assets/copy-c4d13274.svg" alt="copy"
+          /></a>
+          <pre></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

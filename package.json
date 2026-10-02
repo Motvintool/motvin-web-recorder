@@ -1,0 +1,27 @@
+{
+  "name": "motvin-web-recorder",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Record web applications (viewport only) manually or with an AI explorer, and turn recordings into clean screens for Motvin Inspirations.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "setup": "npx playwright install chromium ffmpeg",
+    "doctor": "node src/doctor.js",
+    "test": "node test/selftest.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
+    "archiver": "^8.0.0",
+    "express": "^4.21.2",
+    "ffmpeg-static": "^5.3.0",
+    "playwright": "^1.63.0",
+    "sharp": "^0.35.4",
+    "ws": "^8.18.0"
+  }
+}

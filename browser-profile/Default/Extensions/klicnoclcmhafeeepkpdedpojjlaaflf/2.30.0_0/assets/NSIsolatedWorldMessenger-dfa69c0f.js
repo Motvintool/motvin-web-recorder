@@ -1,0 +1,1 @@
+import{I as e}from"./ExtCSBaseModule-aa429d86.js";import{N as n}from"./NSMessengerBase-42dc7d4d.js";class p extends n{constructor(s){super(s,e)}send(s,r,o,t){return e.send(this.topic(s),r,o,t)}}export{p as N};

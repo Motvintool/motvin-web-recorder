@@ -1,0 +1,42 @@
+{
+  "id": "20261002-165856-linkedin-com-manual",
+  "name": "20261002-165856-linkedin-com-manual",
+  "url": "http://linkedin.com/",
+  "mode": "manual",
+  "viewport": {
+    "width": 1280,
+    "height": 800,
+    "kind": "desktop",
+    "preset": "desktop-1280"
+  },
+  "browser": "chrome",
+  "screenScale": 2,
+  "videoScale": 2,
+  "highRes": {
+    "width": 2560,
+    "height": 1600,
+    "file": "recording.live.mp4"
+  },
+  "fps": 30,
+  "startedAt": "2026-10-02T11:29:03.414Z",
+  "status": "completed",
+  "videoPath": "/Users/surendar-15488/New Backup/Disk/Draft Images/Sources/Demo/plugin/motvin-web-recorder/recordings/20261002-165856-linkedin-com-manual/recording.webm",
+  "location": "/Users/surendar-15488/New Backup/Disk/Draft Images/Sources/Demo/plugin/motvin-web-recorder/recordings/20261002-165856-linkedin-com-manual",
+  "ai": null,
+  "durationMs": 25029,
+  "lastSavedAt": "2026-10-02T11:29:27.418Z",
+  "pauseCount": 0,
+  "endedAt": "2026-10-02T11:29:28.506Z",
+  "pausedMs": 0,
+  "framesWritten": 750,
+  "finalUrl": "https://www.linkedin.com/analytics/creator/content/",
+  "aborted": null,
+  "fileSizeBytes": 3052853,
+  "video": {
+    "width": 1280,
+    "height": 800,
+    "codec": "V_VP8",
+    "durationMs": 25000,
+    "durationEstimated": false
+  }
+}

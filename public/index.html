@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Motvin Web Recorder</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23111827'/%3E%3Ccircle cx='16' cy='16' r='6.5' fill='%23ef4444'/%3E%3C/svg%3E" />
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"><span class="logo-dot"></span></span>
+      <div class="brand-text"><h1>Motvin Web Recorder</h1><p>Record any web app. Only the page, nothing else.</p></div>
+    </div>
+    <div class="top-actions">
+      <span id="statusPill" class="pill pill-idle"><i></i><span>Idle</span></span>
+      <button id="openRootBtn" class="btn btn-quiet" title="Open the recordings folder"></button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <!-- ───────── Setup ───────── -->
+    <aside class="setup card" id="setupPanel">
+      <div class="session-banner hidden" id="sessionBanner"></div>
+
+      <section class="step">
+        <h2><span class="num">1</span>Website</h2>
+        <label class="field">
+          <span class="input-wrap" id="urlWrap">
+            <span class="input-icon" id="urlIcon"></span>
+            <input id="urlInput" type="text" inputmode="url" placeholder="Enter website URL" autocomplete="off" autocapitalize="off" spellcheck="false" />
+          </span>
+          <span class="field-error hidden" id="urlError"></span>
+        </label>
+        <div class="field-label">Viewport</div>
+        <div id="presetList" class="preset-grid"></div>
+        <div id="customViewport" class="custom-viewport hidden">
+          <input id="customW" type="number" min="240" max="3840" value="1440" aria-label="Width" /> <span>×</span>
+          <input id="customH" type="number" min="240" max="3840" value="900" aria-label="Height" />
+        </div>
+      </section>
+
+      <section class="step">
+        <h2><span class="num">2</span>How should it record?</h2>
+        <div class="mode-cards">
+          <button class="mode-card selected" data-mode="manual" id="modeManual">
+            <span class="mode-icon" id="iconManual"></span>
+            <span class="mode-title">Manual</span>
+            <span class="mode-sub">I control the application</span>
+            <span class="mode-check" aria-hidden="true"></span>
+          </button>
+          <button class="mode-card" data-mode="ai" id="modeAi">
+            <span class="mode-icon" id="iconAi"></span>
+            <span class="mode-title">AI Agent</span>
+            <span class="mode-sub">AI explores the application</span>
+            <span class="mode-check" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <label class="toggle hidden" id="autoStartRow">
+          <input id="autoStart" type="checkbox" />
+          <span class="toggle-ui"></span>
+          <span class="toggle-text"><b>Start recording right away</b><small>Otherwise you press Start once the browser is open.</small></span>
+        </label>
+
+        <label class="toggle hidden" id="signInRow">
+          <input id="followSignIn" type="checkbox" checked />
+          <span class="toggle-ui"></span>
+          <span class="toggle-text"><b>Record sign-in windows too</b><small>Google, Microsoft and similar pop-ups. Passwords always show as dots.</small></span>
+        </label>
+
+        <details class="adv" id="aiOptions">
+          <summary><span>AI settings</span><small id="aiSummary"></small></summary>
+          <div class="adv-body">
+            <div class="field-label">AI brain</div>
+            <div id="brainList" class="brain-list"></div>
+            <div class="limits">
+              <label>Max minutes <input id="limMinutes" type="number" min="1" max="60" value="4" /></label>
+              <label>Max screens <input id="limScreens" type="number" min="1" max="200" value="25" /></label>
+              <label>Max steps <input id="limSteps" type="number" min="1" max="500" value="60" /></label>
+            </div>
+            <label class="check"><input id="autoProcess" type="checkbox" checked /> Extract clean screens when exploration ends</label>
+          </div>
+        </details>
+      </section>
+
+      <details class="adv" id="qualityOptions">
+        <summary><span>Quality &amp; browser</span><small id="qualitySummary"></small></summary>
+        <div class="adv-body">
+          <div class="field-label">Browser</div>
+          <div class="seg" id="browserSeg">
+            <button class="seg-btn selected" data-browser="chromium"><b>Chromium</b><small>built-in</small></button>
+            <button class="seg-btn" data-browser="chrome" id="chromeBtn"><b>My Chrome</b><small>Google sign-in</small></button>
+          </div>
+          <p class="hint" id="browserHint"></p>
+          <div class="field-label">Video</div>
+          <select id="videoScaleSelect" aria-label="Video quality">
+            <option value="2" selected>MP4 · 2× resolution (sharpest)</option>
+            <option value="1">MP4 · 1× (viewport size)</option>
+            <option value="3">MP4 · 3× resolution (largest)</option>
+          </select>
+          <p class="hint" id="videoScaleHint"></p>
+          <div class="field-label">Saved screens</div>
+          <select id="scaleSelect" aria-label="Screen quality">
+            <option value="2" selected>WebP · 2× resolution (sharpest)</option>
+            <option value="1">WebP · 1× (viewport size)</option>
+            <option value="3">WebP · 3× resolution (largest)</option>
+          </select>
+        </div>
+      </details>
+
+      <div class="cta" id="controls"></div>
+      <p class="hint cta-hint" id="setupHint"></p>
+      <p class="warning hidden" id="ffmpegWarning"></p>
+    </aside>
+
+    <!-- ───────── Stage (big preview) ───────── -->
+    <section class="stage card" id="stagePanel">
+      <div class="stage-head">
+        <div class="urlbar" id="urlbar"><span class="urlbar-icon" id="urlbarIcon"></span><span id="previewUrl" class="urlbar-text">No website open</span></div>
+        <div class="stage-meta" id="stageMeta"></div>
+      </div>
+
+      <div class="stage-canvas" id="previewStage">
+        <div class="banner hidden" id="banner"></div>
+
+        <div class="preview-frame" id="previewFrame" title="Live view of the browser window">
+          <img id="previewImg" alt="Live viewport preview" draggable="false" />
+          <div class="empty-guide" id="previewEmpty">
+            <div class="empty-art" id="emptyArt"></div>
+            <h3>Your live preview appears here</h3>
+            <p>Only the webpage is recorded. No tabs, address bar, desktop or cursor.</p>
+            <ol class="empty-steps">
+              <li><span>1</span>Enter a website URL</li>
+              <li><span>2</span>Choose Manual or AI Agent</li>
+              <li><span>3</span>Open the browser and record</li>
+            </ol>
+          </div>
+          <div class="busy-veil hidden" id="busyVeil"><span class="spinner"></span><span id="busyText">Opening the browser…</span></div>
+        </div>
+
+        <div class="dock-wrap"><div class="dock hidden" id="dock"></div></div>
+      </div>
+
+      <div class="stage-foot">
+        <div class="flow" id="flowStrip"></div>
+        <div class="ticker">
+          <button class="ticker-btn" id="activityToggle" aria-expanded="false"></button>
+          <span class="ticker-text" id="tickerText"></span>
+        </div>
+        <div class="activity hidden" id="activityDrawer"><div class="log" id="logList"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ───────── Library ───────── -->
+  <section class="library">
+    <div class="library-head">
+      <div><h2>Recordings</h2><p class="muted" id="recordingsSub"></p></div>
+      <div class="library-actions">
+        <span id="recordingsDir" class="muted mono"></span>
+        <button id="refreshRecordings" class="btn btn-quiet btn-sm"></button>
+      </div>
+    </div>
+    <div id="recordingsList" class="gallery"></div>
+  </section>
+</div>
+
+<!-- Viewer -->
+<div class="modal hidden" id="viewer" role="dialog" aria-modal="true" aria-label="Recording viewer">
+  <div class="modal-card" id="viewerCard"></div>
+</div>
+
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<script src="/app.js"></script>
+</body>
+</html>

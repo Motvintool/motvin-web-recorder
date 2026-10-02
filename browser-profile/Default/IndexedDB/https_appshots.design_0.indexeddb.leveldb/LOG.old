@@ -1,0 +1,7 @@
+2026/10/02-14:14:22.402 34ea61 Reusing MANIFEST /Users/surendar-15488/New Backup/Disk/Draft Images/Sources/Demo/plugin/motvin-web-recorder/browser-profile/Default/IndexedDB/https_appshots.design_0.indexeddb.leveldb/MANIFEST-000001
+2026/10/02-14:14:22.403 34ea61 Recovering log #4
+2026/10/02-14:14:22.403 34ea61 Reusing old log /Users/surendar-15488/New Backup/Disk/Draft Images/Sources/Demo/plugin/motvin-web-recorder/browser-profile/Default/IndexedDB/https_appshots.design_0.indexeddb.leveldb/000004.log 
+2026/10/02-14:14:22.411 34ea62 Level-0 table #8: started
+2026/10/02-14:14:22.412 34ea62 Level-0 table #8: 4708 bytes OK
+2026/10/02-14:14:22.414 34ea62 Delete type=0 #4
+2026/10/02-14:14:22.415 34ea61 Manual compaction at level-0 from '\x00\x06\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x07\x00\x00\x00' @ 0 : 0; will stop at (end)

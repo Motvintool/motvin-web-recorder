@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSP Private Window</title>
+    <style>
+        body {
+            margin: 0;
+            width: 292px;
+            background: #ffffff;
+            color: #1f2933;
+            font-family: Arial, sans-serif;
+        }
+
+        .bsp-incognito-panel {
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 132px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: #ffffff;
+        }
+
+        .bsp-incognito-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e4e7ec;
+        }
+
+        .bsp-incognito-logo {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+        }
+
+        .bsp-incognito-title {
+            margin: 0;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 600;
+            color: #17202a;
+        }
+
+        .bsp-incognito-button {
+            width: 100%;
+            min-height: 40px;
+            border: 1px solid #0f5fc1;
+            border-radius: 6px;
+            background: #1967d2;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .bsp-incognito-button:hover:not(:disabled) {
+            background: #125ab8;
+        }
+
+        .bsp-incognito-button:disabled {
+            cursor: default;
+            background: #8aaee8;
+            border-color: #8aaee8;
+        }
+
+        .bsp-incognito-status {
+            min-height: 18px;
+            margin: 0;
+            color: #52606d;
+            font-size: 12px;
+            line-height: 18px;
+            text-align: left;
+        }
+
+        .bsp-incognito-status.error {
+            color: #b42318;
+        }
+    </style>
+</head>
+<body>
+    <main class="bsp-incognito-panel">
+        <div class="bsp-incognito-header">
+            <img class="bsp-incognito-logo" src="bmp48.png" alt="">
+            <h1 class="bsp-incognito-title">Browser Security Plus</h1>
+        </div>
+        <button id="openBSPIncognito" class="bsp-incognito-button" type="button">Open BSP Private Window</button>
+        <p id="bspIncognitoStatus" class="bsp-incognito-status" aria-live="polite"></p>
+    </main>
+    <script src="js/bspIncognitoPopup.js"></script>
+</body>
+</html>
