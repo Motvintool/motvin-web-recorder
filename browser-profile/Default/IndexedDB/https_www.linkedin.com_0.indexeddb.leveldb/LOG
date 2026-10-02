@@ -1,3 +1,2 @@
-2026/10/02-16:59:19.348 3a2679 Reusing MANIFEST /Users/surendar-15488/New Backup/Disk/Draft Images/Sources/Demo/plugin/motvin-web-recorder/browser-profile/Default/IndexedDB/https_www.linkedin.com_0.indexeddb.leveldb/MANIFEST-000001
-2026/10/02-16:59:19.349 3a2679 Recovering log #3
-2026/10/02-16:59:19.349 3a2679 Reusing old log /Users/surendar-15488/New Backup/Disk/Draft Images/Sources/Demo/plugin/motvin-web-recorder/browser-profile/Default/IndexedDB/https_www.linkedin.com_0.indexeddb.leveldb/000003.log 
+2026/10/02-21:17:39.114 39fe8 Creating DB /Users/surendar-15488/New Backup/Disk/Draft Images/Sources/Demo/plugin/motvin-web-recorder/browser-profile/Default/IndexedDB/https_www.linkedin.com_0.indexeddb.leveldb since it was missing.
+2026/10/02-21:17:39.117 39fe8 Reusing MANIFEST /Users/surendar-15488/New Backup/Disk/Draft Images/Sources/Demo/plugin/motvin-web-recorder/browser-profile/Default/IndexedDB/https_www.linkedin.com_0.indexeddb.leveldb/MANIFEST-000001
